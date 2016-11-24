@@ -16,4 +16,5 @@ deployment:
       - |
         export ENV_PREFIX=prod-
         export ROLE=lambda_basic_execution
+        lamvery deploy -s --dry-run
         lamvery deploy -s
