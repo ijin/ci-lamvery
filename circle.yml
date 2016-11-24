@@ -12,7 +12,9 @@ test:
 deployment:
   master:
     branch: master
+    environment:
+      ENV_PREFIX="prod-"
+      ROLE="arn:aws:iam::713403314913:role/lambda_basic_execution"
     commands:
       - |
-        ENV_PREFIX=prod-; ROLE="arn:aws:iam::713403314913:role/lambda_basic_execution"; lamvery deploy -s --dry-run
-        ENV_PREFIX=prod-; ROLE="arn:aws:iam::713403314913:role/lambda_basic_execution"; lamvery deploy -s
+        lamvery deploy -s --dry-run
