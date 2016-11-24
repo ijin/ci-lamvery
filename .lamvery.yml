@@ -6,7 +6,7 @@ clean_build: false
 configuration:
   name: {{ENV_PREFIX}}ci-lamvery
   runtime: python2.7
-  role: arn:aws:iam::713403314913:role/{{ROLE}}
+  role: {{ROLE}}
   handler: lambda_function.lambda_handler
   description: lamvery ci test
   timeout: 10
