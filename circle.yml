@@ -14,8 +14,5 @@ deployment:
     branch: master
     commands:
       - |
-        export ENV_PREFIX=prod-
-        export ROLE=lambda_basic_execution
-        env
-        lamvery deploy -s --dry-run
-        lamvery deploy -s
+        ENV_PREFIX=prod-; ROLE=lambda_basic_execution; lamvery deploy -s --dry-run
+        ENV_PREFIX=prod-; ROLE=lambda_basic_execution; lamvery deploy -s
