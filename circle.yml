@@ -1,0 +1,19 @@
+machine:
+  python:
+    version: 2.7.10
+
+dependencies:
+  pre:
+    - pip install lamvery
+test:
+  override:
+    - echo 'test'
+
+deployment:
+  master:
+    branch: master
+    commands:
+      - |
+        export ENV_PREFIX=prod-
+        export ROLE=lambda_basic_execution
+        lamvery deploy -s
