@@ -4,9 +4,9 @@ versioning: false
 default_alias: null
 clean_build: false
 configuration:
-  name: {{ENV_PREFIX}}ci-lamvery
+  name: {{ env['ENV_PREFIX'] }}ci-lamvery
   runtime: python2.7
-  role: {{ROLE}}
+  role: {{ env['ROLE' ]}}
   handler: lambda_function.lambda_handler
   description: lamvery ci test
   timeout: 10
