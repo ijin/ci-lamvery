@@ -2,8 +2,8 @@ machine:
   python:
     version: 2.7.10
   environment:
-    ENV_PREFIX: "prod-"
-    ROLE: "arn:aws:iam::713403314913:role/lambda_basic_execution"
+    PROD_PREFIX: "prod-"
+    PROD_ROLE: "arn:aws:iam::713403314913:role/lambda_basic_execution"
 
 dependencies:
   pre:
@@ -16,4 +16,4 @@ deployment:
   master:
     branch: master
     commands:
-      - lamvery deploy -s --dry-run
+      - ./lamvery_deploy_and_notify.sh production
