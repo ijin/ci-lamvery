@@ -4,15 +4,23 @@ set -x
 export SHA1=`echo ${CIRCLE_SHA1} | cut -c1-7`
 export ENV=`echo $1 | rev | cut -d \- -f1 | rev`
 
-if [ $1 == 'production' ]; then
+
+case "$1" in
+'production')
     export ENV_PREFIX=$PROD_PREFIX
     export ROLE=$PROD_ROLE
-elif [ $1 == 'staging' ]; then
+    export ROLE=$STG_ROLE
+    lamvery deploy -s --dry-run
+    ;;
+'staging')
     export ENV_PREFIX=$STG_PREFIX
     export ROLE=$STG_ROLE
-fi
+    lamvery deploy -s --dry-run
+    ;;
+*)
+    (exit 1);;
+esac
 
-lamvery deploy -s --dry-run
 
 if [ $? -eq 0 ]; then
     export SL_COLOR="good"
