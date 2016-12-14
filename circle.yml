@@ -1,6 +1,9 @@
 machine:
   python:
     version: 2.7.10
+  environment:
+    ENV_PREFIX: "prod-"
+    ROLE: "arn:aws:iam::713403314913:role/lambda_basic_execution"
 
 dependencies:
   pre:
@@ -13,4 +16,4 @@ deployment:
   master:
     branch: master
     commands:
-        - ENV_PREFIX="prod-" && ROLE="arn:aws:iam::713403314913:role/lambda_basic_execution" && lamvery deploy -s --dry-run
+      - lamvery deploy -s --dry-run
