@@ -18,7 +18,7 @@ deployment:
   master:
     branch: master
     commands:
-      - ./lamvery_deploy_and_notify.sh production
+      - ./lamvery_deploy_and_notify.sh productionz
   staging:
     branch: develop
     commands:
