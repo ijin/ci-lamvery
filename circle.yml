@@ -4,6 +4,8 @@ machine:
   environment:
     PROD_PREFIX: "prod-"
     PROD_ROLE: "arn:aws:iam::713403314913:role/lambda_basic_execution"
+    STG_PREFIX: "stg-"
+    STG_ROLE: "arn:aws:iam::713403314913:role/lambda_basic_execution"
 
 dependencies:
   pre:
@@ -17,3 +19,7 @@ deployment:
     branch: master
     commands:
       - ./lamvery_deploy_and_notify.sh production
+  staging:
+    branch: develop
+    commands:
+      - ./lamvery_deploy_and_notify.sh staging
